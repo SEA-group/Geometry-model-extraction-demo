@@ -1,0 +1,68 @@
+?10 00 00 00 10 00 00 00 :8
+numberOfVertexBlocs:4						# uint32
+numberOfIndexBlocs:4						# uint32
+?unknown:24
+vertexSectionPosition:4						# uint32
+?zeros:4
+indexSectionPosition:4						# uint32
+?zeros:20
+vertexBlocsInfo[
+	verticeBlocInfo{
+		?unknown:8
+		?unknown:4
+		blocVerticesNumber:4				# uint32
+	}:16
+]:16*numberOfVertexBlocs
+indexBlocsInfo[
+	indexBlocInfo{
+		?unknown:8
+		?unknown:4
+		blocIndicesNumber:4					# uint32; each triangle is counted as 3 indices
+	}:16
+]:16*numberOfIndexBlocs
+vertexData[
+	?20 00 00 00 00 00 00 00 :8
+	?unknown:8
+	?vertexBlocsTotalLength+24:4			# uint32
+	?zeros:4
+	vertexBlocsTotalLength:4				# uint32
+	singleVertexLength:2					# uint16
+	?unknown:2
+	vertices[
+		xyznuvtbpc{							### standard model 
+			xyz:12							# float *3
+			normal:4						# UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			u:2								# float16 + 0.5
+			v:2								# float16 + 0.5
+			tangent:4						# UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			binormal:4						# UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+		}:28
+		xyznuviiiwwtbpc{					### skinned model 
+			normal:4						# UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			u:2								# float16 + 0.5
+			v:2								# float16 + 0.5
+			iii:4							# SC_REVERSE_PADDED_III_
+			ww:4							# SC_REVERSE_PADDED__WW_
+			tangent:4						# UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			binormal:4						# UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+		}:32
+	]:vertexBlocsTotalLength
+	type:?
+]
+indexData[
+	?10 00 00 00 00 00 00 00 :8
+	indexBlocsTotalLength:4					# uint32
+	?00 00 02 00 :4
+	indices[
+		list{								
+			i3:2							# uint16
+			i2:2							# uint16
+			i1:2							# uint16
+		}:6
+		list32{								
+			i3:4							# uint32
+			i2:4							# uint32
+			i1:4							# uint32
+		}:12
+	]:indexBlocsTotalLength
+]
