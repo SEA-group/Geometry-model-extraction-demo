@@ -1,0 +1,10 @@
+<spatial_ui_triangle.xml>
+	<elements>
+		<POSITION>
+			<type> FLOAT3 </type>
+		</POSITION>
+		<COLOR>
+			<type> COLOR </type>
+		</COLOR>
+	</elements>
+</spatial_ui_triangle.xml>

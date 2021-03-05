@@ -1,0 +1,20 @@
+<wg_spt_instancing.xml>
+	<elements>
+		<!-- instance data -->
+		<TEXCOORD> 
+			<!-- posInstance -->
+			<semanticIndex> 3 </semanticIndex>
+			<stream> 9 </stream>
+			<offset> 0 </offset>
+			<type> FLOAT3 </type>
+		</TEXCOORD> 
+		<TEXCOORD> 
+			<!-- scaleInstance -->
+			<semanticIndex> 4 </semanticIndex>
+			<stream> 9 </stream>
+			<offset> 12 </offset>
+			<type> FLOAT16_2 </type>
+		</TEXCOORD> 
+	</elements>
+</wg_spt_instancing.xml>
+

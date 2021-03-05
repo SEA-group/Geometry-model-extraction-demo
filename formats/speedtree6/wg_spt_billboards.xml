@@ -1,0 +1,18 @@
+<wg_spt_billboards.xml>
+	<elements>
+		<POSITION>
+			<semanticIndex> 0 </semanticIndex>
+			<type> FLOAT3 </type>
+		</POSITION>
+		<TEXCOORD>
+			<semanticIndex> 0 </semanticIndex>
+			<type> FLOAT2 </type>
+		</TEXCOORD>
+		<NORMAL>
+			<type> FLOAT3 </type>
+		</NORMAL>
+		<TANGENT>
+			<type> FLOAT3 </type>
+		</TANGENT>
+	</elements>
+</wg_spt_billboards.xml>

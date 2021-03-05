@@ -1,0 +1,11 @@
+<spatial_ui_ellipse.xml>
+	<elements>
+		<POSITION>
+			<type> FLOAT3 </type>
+		</POSITION>
+		<COLOR>
+			<type> COLOR </type>
+			<!-- Not used, one byte padding -->
+		</COLOR>
+	</elements>
+</spatial_ui_ellipse.xml>

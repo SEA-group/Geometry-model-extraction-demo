@@ -1,0 +1,34 @@
+<xyznuv2iiiwwtb.xml>
+	<elements>
+		<POSITION/>
+		<NORMAL>
+			<type> UBYTE4 </type>
+		</NORMAL>
+		<TEXCOORD>
+			<semanticIndex> 0 </semanticIndex>
+			<type> FLOAT2 </type>
+		</TEXCOORD>
+		<TEXCOORD>
+			<semanticIndex> 1 </semanticIndex>
+			<type> FLOAT2 </type>
+		</TEXCOORD>
+		<BLENDINDICES>
+			<type> UBYTE3 </type>
+		</BLENDINDICES>
+		<BLENDWEIGHT>
+			<type> UBYTE2 </type>
+		</BLENDWEIGHT>
+		<TANGENT>
+			<type> UBYTE4 </type>
+		</TANGENT>
+		<BINORMAL>
+			<type> UBYTE4 </type>
+		</BINORMAL>
+	</elements>
+	<targets>
+		<target>
+			<name> D3D9 </name>
+			<format> set3/xyznuv2iiiwwtbpc </format>
+		</target>
+	</targets>
+</xyznuv2iiiwwtb.xml>

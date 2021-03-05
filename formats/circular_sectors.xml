@@ -1,0 +1,39 @@
+<circular_ring.xml>
+	<elements>
+		<!-- start sector angle -->
+		<TEXCOORD>
+			<semanticIndex> 0 </semanticIndex>
+			<type> FLOAT1 </type>
+		</TEXCOORD>
+		<!-- end sector angle -->
+		<TEXCOORD>
+			<semanticIndex> 1 </semanticIndex>
+			<type> FLOAT1 </type>
+		</TEXCOORD>
+		<!-- start step angle -->
+		<TEXCOORD>
+			<semanticIndex> 2 </semanticIndex>
+			<type> FLOAT1 </type>
+		</TEXCOORD>
+		<!-- end step angle -->
+		<TEXCOORD>
+			<semanticIndex> 3 </semanticIndex>
+			<type> FLOAT1 </type>
+		</TEXCOORD>
+		<!-- current angle -->
+		<TEXCOORD>
+			<semanticIndex> 4 </semanticIndex>
+			<type> FLOAT1 </type>
+		</TEXCOORD>
+		<!-- vertex position tag -->
+		<TEXCOORD>
+			<semanticIndex> 5 </semanticIndex>
+			<type> FLOAT1 </type>
+		</TEXCOORD>
+		<!-- padding -->
+		<TEXCOORD>
+			<semanticIndex> 6 </semanticIndex>
+			<type> FLOAT2 </type>
+		</TEXCOORD>
+	</elements>
+</circular_ring.xml>

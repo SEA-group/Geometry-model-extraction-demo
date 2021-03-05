@@ -1,0 +1,9 @@
+<mine.xml>
+	<elements>
+		<TEXCOORD> 
+			<semanticIndex> 9 </semanticIndex>
+			<stream> 9 </stream>
+			<type> FLOAT2 </type>
+		</TEXCOORD> 
+	</elements>
+</mine.xml>

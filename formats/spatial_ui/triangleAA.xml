@@ -1,0 +1,35 @@
+<spatial_ui_triangle_aa.xml>
+	<elements>
+		<POSITION>
+			<type> FLOAT3 </type>
+			<semanticIndex> 0 </semanticIndex>
+		</POSITION>
+		<COLOR>
+			<type> COLOR </type>
+			<semanticIndex> 0 </semanticIndex>
+		</COLOR>
+		
+		<POSITION>
+			<type> FLOAT3 </type>
+			<semanticIndex> 1 </semanticIndex>
+		</POSITION>
+		<COLOR>
+			<type> COLOR </type>
+			<semanticIndex> 1 </semanticIndex>
+		</COLOR>
+		
+		<POSITION>
+			<type> FLOAT3 </type>
+			<semanticIndex> 2 </semanticIndex>
+		</POSITION>
+		<COLOR>
+			<type> COLOR </type>
+			<semanticIndex> 2 </semanticIndex>
+		</COLOR>
+		
+		<TEXCOORD>
+			<type> UBYTE1 </type>
+			<stream> 1 </stream>
+		</TEXCOORD>
+	</elements>
+</spatial_ui_triangle_aa.xml>

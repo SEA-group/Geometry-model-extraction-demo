@@ -1,0 +1,13 @@
+<xyznuvpc.xml>
+	<elements>
+		<POSITION>
+			<type> FLOAT3 </type>
+		</POSITION>
+		<NORMAL>
+			<type> UBYTE4_NORMAL_8_8_8 </type>
+		</NORMAL>
+		<TEXCOORD>
+			<type> FLOAT16_2 </type>
+		</TEXCOORD>
+	</elements>
+</xyznuvpc.xml>

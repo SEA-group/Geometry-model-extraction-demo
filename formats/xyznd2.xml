@@ -1,0 +1,11 @@
+<xyznd.xml>
+	<elements>
+		<POSITION/>
+		<NORMAL>
+			<type> UBYTE4 </type>
+		</NORMAL>
+		<COLOR>
+			<type> COLOR </type>
+		</COLOR>
+	</elements>
+</xyznd.xml>

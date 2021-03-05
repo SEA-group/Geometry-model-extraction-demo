@@ -1,0 +1,10 @@
+<wave_instance.xml>
+	<elements>
+		<TEXCOORD> 
+			<semanticIndex> 0 </semanticIndex>
+			<stream> 0 </stream>
+			<type> UINT3 </type>
+			<instanceData> true </instanceData>
+		</TEXCOORD> 
+	</elements>
+</wave_instance.xml>

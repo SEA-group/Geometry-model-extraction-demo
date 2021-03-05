@@ -1,0 +1,11 @@
+<xyuv16i.xml>
+	<elements>
+		<POSITION>
+			<type> FLOAT2 </type>
+		</POSITION>
+		<TEXCOORD>
+			<semanticIndex> 0 </semanticIndex>
+			<type> FLOAT2 </type>
+		</TEXCOORD>
+	</elements>
+</xyuv16i.xml>
