@@ -5,7 +5,8 @@ numberOfIndexBlocs:4						# uint32
 vertexSectionPosition:4						# uint32
 ?zeros:4
 indexSectionPosition:4						# uint32
-?zeros:20
+?zeros:8
+?unknown:8
 vertexBlocsInfo[
 	verticeBlocInfo{
 		?unknown:8
