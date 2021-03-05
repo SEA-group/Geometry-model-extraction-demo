@@ -12,14 +12,14 @@ indexSectionPosition:4						# uint32
 vertexBlocsInfo[
 	verticeBlocInfo{
 		?unknown:8
-		?unknown:4
+		blocPosition:4						# uint32; position counted from the first byte of vertices[]
 		blocVerticesNumber:4				# uint32
 	}:16
 ]:16*numberOfVertexBlocs
 indexBlocsInfo[
 	indexBlocInfo{
 		?unknown:8
-		?unknown:4
+		blocPosition:4						# uint32; position counted from the first byte of indices[]
 		blocIndicesNumber:4					# uint32; each triangle is counted as 3 indices
 	}:16
 ]:16*numberOfIndexBlocs
