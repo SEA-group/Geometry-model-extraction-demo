@@ -6,6 +6,7 @@ vertexSectionPosition:4						# uint32
 ?zeros:4
 indexSectionPosition:4						# uint32
 ?zeros:4
+?unknown:8
 ?armorSectionPosition:4						# uint32
 ?zeros:4
 vertexBlocsInfo[
