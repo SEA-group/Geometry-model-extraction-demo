@@ -4,4 +4,4 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/SEA-group/Geometry-model-extraction-demo)
 ![GitHub issues](https://img.shields.io/github/issues-raw/SEA-group/Geometry-model-extraction-demo)
 
-Under constrcution
+Under construction
