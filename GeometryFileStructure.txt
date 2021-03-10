@@ -1,29 +1,29 @@
-# 0000
+# 0x0000
 numberOfVertexTypes:4						// uint32
 numberOfIndexTypes:4						// uint32
 numberOfVertexBlocs:4						// uint32
 numberOfIndexBlocs:4						// uint32
 
-# 0010
+# 0x0010
 ?unknown:24
 
-# 0028
+# 0x0028
 vertexSectionPosition:4						// uint32
 ?zeros:4
 
-# 0030
+# 0x0030
 indexSectionPosition:4						// uint32
 ?zeros:4
 
-# 0038
+# 0x0038
 ?unknownSectionPosition:4					// uint32
 ?zeros:4
 
-# 0040
+# 0x0040
 ?armorSectionPosition:4						// uint32
 ?zeros:4
 
-# 0048
+# 0x0048
 vertexBlocsInfo[
 	vertexBlocInfo{
 		?unknown:4
