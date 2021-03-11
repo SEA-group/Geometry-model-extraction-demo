@@ -62,8 +62,8 @@ vertexSection[									// the vertex section has a 2-layer structure, the vertex
 			singleVertexLength:2				// uint16
 			?endmark:2							// seems like 00 00 for continue, 00 01 for end
 		}:32
-	]32*numberOfVertexTypes
-	largeVertexBlocs[
+	]:32*numberOfVertexTypes
+	largeVertexBlocs{
 		vertexBlocs[
 			set3/xyznuvrpc{							//// wire model 
 				xyz:12								// float *3
@@ -96,8 +96,8 @@ vertexSection[									// the vertex section has a 2-layer structure, the vertex
 				binormal:4							// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
 			}:32
 		]:vertexBlocsTotalLength
-		vertexType:vertexTypeStringLength
-	]
+		vertexType:vertexTypeStringLength			// ascii
+	}
 ]
 
 # indexSectionPosition
@@ -109,9 +109,9 @@ indexSection[
 			indexBlocsTotalLength:4					// uint32
 			indexType:2								// uint16; seems like 0 for list16 and 1 for list32
 			singleIndexLength:2						// uint16;
-		}
-	]
-	largeIndexBlocs
+		}:32
+	]:32*numberOfIndexTypes
+	largeIndexBlocs{
 		indexBlocs[
 			list{								
 				i3:2								// uint16
@@ -124,11 +124,28 @@ indexSection[
 				i1:4								// uint32
 			}:12
 		]:indexBlocsTotalLength
-	]
+	}
 ]
 
 # unknownSectionPosition
 ?unknownSection[]
 
 # armorSectionPosition
-armorSection[]
+armorSection[
+	?unclearLength:4								// uint32; counted from the first byte of 
+	?zeros:4
+	blocNameStringLength:4							// uint32
+	?zeros:4
+	blocNamePosition:4								// uint32; position counted from the first byte of blocNameStringLength
+	?zeros:4
+	?unknown:32
+	armorVertices{
+		?unknown:28
+		numberOfVertices:4							// uint32
+		armorVertex{
+			xyz:12									// float*3
+			unknown:4
+		}:8
+	}:32+8*numberOfVertices
+	blocNameString:blocNameStringLength				// ascii
+]
