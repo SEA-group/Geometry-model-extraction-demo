@@ -35,7 +35,7 @@ vertexBlocsInfo[
 indexBlocsInfo[
 	indexBlocInfo{
 		?blocName:4 							// unknown coding
-		indexTypeIndex:4						// uint32; seems to be 0 for list and 1 for list32
+		indexTypeIndex:4						// uint32;
 		blocPosition:4							// uint32; position counted from the first byte of indexBlocs[]
 		blocIndicesNumber:4						// uint32; each triangle is counted as 3 indices
 	}:16
@@ -43,9 +43,9 @@ indexBlocsInfo[
 
 # vertexSectionPosition
 vertexSection[									// the vertex section has a 2-layer structure, the vertex blocs are devided into "large blocs" according to their vertex type 
-	largeBlocsInfo[									
-		largeBlocInfo{
-			largeBlocPosition:4					// uint32; position counted from the first byte of this largeBlocPosition
+	largeVertexBlocsInfo[									
+		largeVertexBlocInfo{
+			largeVertexBlocPosition:4			// uint32; position counted from the first byte of this largeVertexBlocPosition
 			?zeros:4
 			vertexTypeStringLength:4			// uint32
 			?zeros:4
@@ -95,20 +95,27 @@ vertexSection[									// the vertex section has a 2-layer structure, the vertex
 
 # indexSectionPosition
 indexSection[
-	sectionHeadLength:4						// uint32; length counted from the first byte of indexSection[] to the first byte of indexBlocs[]
-	?zeros:4
-	indexBlocsTotalLength:4					// uint32
-	?00 00 02 00 :4
-	indexBlocs[
-		list{								
-			i3:2							// uint16
-			i2:2							// uint16
-			i1:2							// uint16
-		}:6
-		list32{								
-			i3:4							// uint32
-			i2:4							// uint32
-			i1:4							// uint32
-		}:12
-	]:indexBlocsTotalLength
+	largeIndexBlocsInfo[									
+		largeIndexBlocInfo{
+			largeIndexBlocPosition:4				// uint32; position counted from the first byte of this largeIndexBlocPosition
+			?zeros:4
+			indexBlocsTotalLength:4					// uint32
+			indexType:2								// uint16; seems like 0 for list16 and 1 for list32
+			singleIndexLength:2						// uint16;
+		}
+	]
+	largeIndexBlocs
+		indexBlocs[
+			list{								
+				i3:2								// uint16
+				i2:2								// uint16
+				i1:2								// uint16
+			}:6
+			list32{								
+				i3:4								// uint32
+				i2:4								// uint32
+				i1:4								// uint32
+			}:12
+		]:indexBlocsTotalLength
+	]
 ]
