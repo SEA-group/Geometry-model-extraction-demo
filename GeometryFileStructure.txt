@@ -1,26 +1,26 @@
 # 0x0000
-numberOfVertexTypes:4						// uint32
-numberOfIndexTypes:4						// uint32
-numberOfVertexBlocs:4						// uint32
-numberOfIndexBlocs:4						// uint32
+numberOfVertexTypes:4							// uint32
+numberOfIndexTypes:4							// uint32
+numberOfVertexBlocs:4							// uint32
+numberOfIndexBlocs:4							// uint32
 
 # 0x0010
 ?unknown:24
 
 # 0x0028
-vertexSectionPosition:4						// uint32
+vertexSectionPosition:4							// uint32
 ?zeros:4
 
 # 0x0030
-indexSectionPosition:4						// uint32
+indexSectionPosition:4							// uint32
 ?zeros:4
 
 # 0x0038
-?unknownSectionPosition:4					// uint32
+?unknownSectionPosition:4						// uint32
 ?zeros:4
 
 # 0x0040
-?armorSectionPosition:4						// uint32
+?armorSectionPosition:4							// uint32
 ?zeros:4
 
 # 0x0048
@@ -29,7 +29,7 @@ vertexBlocsInfo[
 		?blocName:4
 		vertexTypeIndex:4					// uint32
 		blocPosition:4						// uint32; position counted from the first byte of vertexBlocs[]
-		blocVerticesNumber:4				// uint32
+		blocVerticesNumber:4					// uint32
 	}:16
 ]:16*numberOfVertexBlocs
 indexBlocsInfo[
@@ -50,41 +50,41 @@ vertexSection[
 			?unknown:8
 			?vertexBlocsTotalLength+24 or +58:4		// uint32
 			?zeros:4
-			vertexBlocsTotalLength:4				// uint32
-			singleVertexLength:2					// uint16
+			vertexBlocsTotalLength:4			// uint32
+			singleVertexLength:2				// uint16
 			?unknown:2
 		}
 	]
 	vertexBlocs[
-		set3/xyznuvrpc{						////// wire model 
-			xyz:12							// float *3
-			normal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-			u:2								// float16 + 0.5
-			v:2								// float16 + 0.5
-			r:4								// float
+		set3/xyznuvrpc{						//// wire model 
+			xyz:12						// float *3
+			normal:4					// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			u:2						// float16 + 0.5
+			v:2						// float16 + 0.5
+			r:4						// float
 		}:24
-		set3/xyznuvpc{						////// alpha model 
-			xyz:12							// float *3
-			normal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-			u:2								// float16 + 0.5
-			v:2								// float16 + 0.5
+		set3/xyznuvpc{						//// alpha model 
+			xyz:12						// float *3
+			normal:4					// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			u:2						// float16 + 0.5
+			v:2						// float16 + 0.5
 		}:20
-		set3/xyznuvtbpc{							////// standard model 
-			xyz:12							// float *3
-			normal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-			u:2								// float16 + 0.5
-			v:2								// float16 + 0.5
-			tangent:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-			binormal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+		set3/xyznuvtbpc{					//// standard model 
+			xyz:12						// float *3
+			normal:4					// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			u:2						// float16 + 0.5
+			v:2						// float16 + 0.5
+			tangent:4					// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			binormal:4					// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
 		}:28
-		set3/xyznuviiiwwtbpc{					////// skinned model 
-			normal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-			u:2								// float16 + 0.5
-			v:2								// float16 + 0.5
-			iii:4							// SC_REVERSE_PADDED_III_
-			ww:4							// SC_REVERSE_PADDED__WW_
-			tangent:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-			binormal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+		set3/xyznuviiiwwtbpc{					//// skinned model 
+			normal:4					// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			u:2						// float16 + 0.5
+			v:2						// float16 + 0.5
+			iii:4						// SC_REVERSE_PADDED_III_
+			ww:4						// SC_REVERSE_PADDED__WW_
+			tangent:4					// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			binormal:4					// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
 		}:32
 	]:vertexBlocsTotalLength
 	type:?
@@ -94,18 +94,18 @@ vertexSection[
 indexSection[
 	sectionHeadLength:4						// uint32; length counted from the first byte of indexSection[] to the first byte of indexBlocs[]
 	?zeros:4
-	indexBlocsTotalLength:4					// uint32
+	indexBlocsTotalLength:4						// uint32
 	?00 00 02 00 :4
 	indexBlocs[
 		list{								
-			i3:2							// uint16
-			i2:2							// uint16
-			i1:2							// uint16
+			i3:2						// uint16
+			i2:2						// uint16
+			i1:2						// uint16
 		}:6
 		list32{								
-			i3:4							// uint32
-			i2:4							// uint32
-			i1:4							// uint32
+			i3:4						// uint32
+			i2:4						// uint32
+			i1:4						// uint32
 		}:12
 	]:indexBlocsTotalLength
 ]
