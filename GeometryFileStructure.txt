@@ -26,7 +26,7 @@ indexSectionPosition:4						// uint32
 # 0x0048
 vertexBlocsInfo[
 	vertexBlocInfo{
-		?unknown:4
+		?blocName:4
 		vertexTypeIndex:4					// uint32
 		blocPosition:4						// uint32; position counted from the first byte of vertexBlocs[]
 		blocVerticesNumber:4				// uint32
@@ -34,7 +34,7 @@ vertexBlocsInfo[
 ]:16*numberOfVertexBlocs
 indexBlocsInfo[
 	indexBlocInfo{
-		?unknown:4
+		?blocName:4
 		indexTypeIndex:4					// uint32; seems to be 0 for list and 1 for list32
 		blocPosition:4						// uint32; position counted from the first byte of indexBlocs[]
 		blocIndicesNumber:4					// uint32; each triangle is counted as 3 indices
