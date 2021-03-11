@@ -132,20 +132,23 @@ indexSection[
 
 # armorSectionPosition
 armorSection[
-	?unclearLength:4								// uint32; counted from the first byte of 
+	unclearLength:4									// uint32; counted from the first byte of unknownA to blocNameString
 	?zeros:4
 	blocNameStringLength:4							// uint32
 	?zeros:4
 	blocNamePosition:4								// uint32; position counted from the first byte of blocNameStringLength
 	?zeros:4
-	?unknown:32
-	armorVertices{
-		?unknown:28
+	unknownA:24
+	numberOfArmorPieces:4							// uint32
+	armorPieces{
+		id:4										// uint32
+		unknownB:24									
 		numberOfVertices:4							// uint32
 		armorVertex{
 			xyz:12									// float*3
-			unknown:4
+			unknownC:4
 		}:8
 	}:32+8*numberOfVertices
-	blocNameString:blocNameStringLength				// ascii
+	blocNameString:blocNameStringLength				// ascii; 'CM_PA_united.armor '
 ]
+// unknownA unknownB and unknownC are identical to those in .prmitives, although I don't know what they are, their data are not changed.
