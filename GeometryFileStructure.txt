@@ -45,16 +45,16 @@ indexBlocsInfo[
 vertexSection[
 	sectionHeadLength:4						// uint32; length counted from the first byte of vertexSection[] to the first byte of vertexBlocs[]
 	?zeros:4
+	?unknown:8
 	?[
 		{
-			?unknown:8
 			?vertexBlocsTotalLength+24 or +58:4		// uint32
 			?zeros:4
 			vertexBlocsTotalLength:4			// uint32
 			singleVertexLength:2				// uint16
 			?unknown:2
-		}
-	]
+		}:16
+	]16*(numberOfVertexTypes*2-1)?
 	vertexBlocs[
 		set3/xyznuvrpc{						//// wire model 
 			xyz:12						// float *3
