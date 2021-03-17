@@ -109,8 +109,8 @@ indexSection[
 			indexBlocsTotalLength:4					// uint32
 			indexType:2								// uint16; seems like 0 for list16 and 1 for list32
 			singleIndexLength:2						// uint16;
-		}:32
-	]:32*numberOfIndexTypes
+		}:16
+	]:16*numberOfIndexTypes
 	largeIndexBlocs{
 		indexBlocs[
 			list{								

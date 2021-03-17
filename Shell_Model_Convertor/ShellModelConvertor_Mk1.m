@@ -24,7 +24,7 @@ function succes = ShellModelConvertor_Mk1(primPath, shellType)
     shellName{3} = 'CPA003_Shell_CS';
     
     primFileName = [primPath, '\', shellName{shellType}, '.primitives'];      % file before conversion
-    frameFileName = ['Frames\', shellName{shellType}, '.geometry'];    % a true grometry file as example
+    frameFileName = ['Frames\', shellName{shellType}, '.geometry'];    % a true geometry file as example
     geomFileName = [primPath, '\', shellName{shellType}, '.geometry'];    % file after conversion
 
     %% open primitives file and read in bytes
@@ -336,19 +336,19 @@ function succes = ShellModelConvertor_Mk1(primPath, shellType)
     % write the quantity of vertices in this bloc
     if isequal(frameCode(121:124), [142; 36; 226; 78])      % tailShape.indices
 
-        geomCode(133:136) = uint322Byte4LE(size(tail_indices, 1));
+        geomCode(133:136) = uint322Byte4LE(size(tail_indices, 1)*3);
         indPosCursor = size(tail_indices, 1);
         indOrder{1} = 'tail';
 
     elseif isequal(frameCode(121:124), [234; 42; 84; 92]) || isequal(frameCode(121:124), [16; 101; 4; 233])       % body.indices or bodyShape.indices   
 
-        geomCode(133:136) = uint322Byte4LE(size(body_indices, 1));
+        geomCode(133:136) = uint322Byte4LE(size(body_indices, 1)*3);
         indPosCursor = size(body_indices, 1);
         indOrder{1} = 'body';
 
-    elseif isequal(frameCode(121:124), [27; 59; 30; 97])       % frictionShape.vertices
+    elseif isequal(frameCode(121:124), [27; 59; 30; 97])       % frictionShape.indices
 
-        geomCode(133:136) = uint322Byte4LE(size(friction_indices, 1));
+        geomCode(133:136) = uint322Byte4LE(size(friction_indices, 1)*3);
         indPosCursor = size(friction_indices, 1);
         indOrder{1} = 'friction';
 
@@ -368,19 +368,19 @@ function succes = ShellModelConvertor_Mk1(primPath, shellType)
     % write the quantity of vertices in this bloc
     if isequal(frameCode(137:140), [142; 36; 226; 78])      % tailShape.indices
 
-        geomCode(149:152) = uint322Byte4LE(size(tail_indices, 1));
+        geomCode(149:152) = uint322Byte4LE(size(tail_indices, 1)*3);
         indPosCursor = indPosCursor + size(tail_indices, 1);
         indOrder{2} = 'tail';
 
     elseif isequal(frameCode(137:140), [234; 42; 84; 92]) || isequal(frameCode(137:140), [16; 101; 4; 233])       % body.indices or bodyShape.indices   
 
-        geomCode(149:152) = uint322Byte4LE(size(body_indices, 1));
+        geomCode(149:152) = uint322Byte4LE(size(body_indices, 1)*3);
         indPosCursor = indPosCursor + size(body_indices, 1);
         indOrder{2} = 'body';
 
     elseif isequal(frameCode(137:140), [27; 59; 30; 97])       % frictionShape.vertices
 
-        geomCode(149:152) = uint322Byte4LE(size(friction_indices, 1));
+        geomCode(149:152) = uint322Byte4LE(size(friction_indices, 1)*3);
         indPosCursor = indPosCursor + size(friction_indices, 1);
         indOrder{2} = 'friction';
 
@@ -400,17 +400,17 @@ function succes = ShellModelConvertor_Mk1(primPath, shellType)
     % write the quantity of vertices in this bloc
     if isequal(frameCode(153:156), [142; 36; 226; 78])      % tailShape.indices
 
-        geomCode(165:168) = uint322Byte4LE(size(tail_indices, 1));
+        geomCode(165:168) = uint322Byte4LE(size(tail_indices, 1)*3);
         indOrder{3} = 'tail';
 
     elseif isequal(frameCode(153:156), [234; 42; 84; 92]) || isequal(frameCode(153:156), [16; 101; 4; 233])       % body.indices or bodyShape.indices   
 
-        geomCode(165:168) = uint322Byte4LE(size(body_indices, 1));
+        geomCode(165:168) = uint322Byte4LE(size(body_indices, 1)*3);
         indOrder{3} = 'body';
 
     elseif isequal(frameCode(153:156), [27; 59; 30; 97])       % frictionShape.vertices
 
-        geomCode(165:168) = uint322Byte4LE(size(friction_indices, 1));
+        geomCode(165:168) = uint322Byte4LE(size(friction_indices, 1)*3);
         indOrder{3} = 'friction';
 
     else
