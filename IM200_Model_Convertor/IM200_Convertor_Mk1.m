@@ -225,7 +225,7 @@
         geomCode(cursor+9: cursor+12) = uint322Byte4LE(indPosCursor);                                    % bloc position
         geomCode(cursor+13: cursor+16) = uint322Byte4LE(size(data_indices_mat, 1)*3);
         cursor = cursor+16;
-        indPosCursor = indPosCursor + size(data_indices_mat, 1);
+        indPosCursor = indPosCursor + 3*size(data_indices_mat, 1);
     end
 
     %% start "vertexSection"
