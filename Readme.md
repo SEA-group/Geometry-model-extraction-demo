@@ -14,8 +14,11 @@ This repo stocks files that may help understanding the file strcture of *.geomet
 * `AGS028`, `JAS007` and `JGM055` can be used for investigating vertex types with iiiww.
 
 ## Shell model convertor
-~~It seems that *.geometry* has less information then *.primitives*, I guess WG's tool would need their corresponding *.visual* file for the conversion~~(I changed my mind). Meanwhile we have never had *.visual* files of the shells. Since those models look simple, I will try to make a tool by myself.
-The first version is completed, but I can't test it since the PT server is offline.
+~~It seems that *.geometry* has less information then *.primitives*, I guess WG's tool would need their corresponding *.visual* file for the conversion. Meanwhile we have never had *.visual* files of the shells.~~(Proven false) Since those models look simple, I will try to make a tool by myself.
+The first version is completed, ~~but I can't test it since the PT server is offline.~~Test done, the tool is functional.
+
+## IM200 convertor
+Modified version of Shell model convertor, for Kobayashi's water heater.
 
 ## Geometry to obj convertor
 ...is planned for the future, when we have fully understood the new format.
