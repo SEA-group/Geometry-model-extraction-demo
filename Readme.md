@@ -15,7 +15,8 @@ This repo stocks files that may help understanding the file strcture of *.geomet
 
 ## Shell model convertor
 ~~It seems that *.geometry* has less information then *.primitives*, I guess WG's tool would need their corresponding *.visual* file for the conversion. Meanwhile we have never had *.visual* files of the shells.~~(Proven false) Since those models look simple, I will try to make a tool by myself.
-The first version is completed, ~~but I can't test it since the PT server is offline.~~Test done, the tool is functional.
+
+The first version is completed, ~~but I can't test it since the PT server is offline.~~ Test done, the tool is functional.
 
 ## IM200 convertor
 Modified version of Shell model convertor, for Kobayashi's water heater.
