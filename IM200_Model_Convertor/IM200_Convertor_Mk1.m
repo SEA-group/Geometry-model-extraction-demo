@@ -194,7 +194,7 @@
     geomCode = frameCode(1:48);
 
     % calculate index section position for 0x0030
-    geomCode(49:52) = uint322Byte4LE( 72 + 16*8 + 32 + 4*size(data_vertices_mat, 1) + 16 );
+    geomCode(49:52) = uint322Byte4LE( 72 + 16*8 + 32 + 28*4*size(data_vertices_mat, 1) + 16 );
 
     % copy codes until 0x0047
     geomCode(53:72) = frameCode(53:72); 
@@ -230,11 +230,12 @@
 
     %% start "vertexSection"
 
-    geomCode(cursor+1: cursor+16) = frameCode(cursor+1: cursor+16); 
+    geomCode(cursor+1: cursor+16) = [32; 0; 0; 0; 0; 0; 0; 0;...
+                                                                  16; 0; 0; 0; 0; 0; 0; 0]; 
     geomCode(cursor+17: cursor+20) = uint322Byte4LE(28*4*size(data_vertices_mat, 1) + 24);
     geomCode(cursor+21: cursor+24) = [0; 0; 0; 0];
     geomCode(cursor+25: cursor+28) = uint322Byte4LE(28*4*size(data_vertices_mat, 1));
-    geomCode(cursor+29: cursor+32) = frameCode(cursor+29: cursor+32);
+    geomCode(cursor+29: cursor+32) = [28; 0; 0; 1];
 
     cursor = cursor+32;
 
@@ -284,12 +285,9 @@
 
     %% start "indexSection"
 
-    % find frameCode's indexSectionPosition
-    frameIndexPosition = byte2Uint32LE(frameCode(49), frameCode(50), frameCode(51), frameCode(52));
-
-    geomCode(cursor+1: cursor+8) = frameCode(frameIndexPosition+1: frameIndexPosition+8); 
+    geomCode(cursor+1: cursor+8) = [16; 0; 0; 0; 0; 0; 0; 0]; 
     geomCode(cursor+9: cursor+12) = uint322Byte4LE(6*4*(size(data_indices_mat, 1)));
-    geomCode(cursor+13: cursor+16) = frameCode(frameIndexPosition+13: frameIndexPosition+16); 
+    geomCode(cursor+13: cursor+16) = [2; 0; 0; 0]; 
 
     cursor = cursor + 16;
 
