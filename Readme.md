@@ -19,7 +19,7 @@ This repo stocks files that may help understanding the file strcture of *.geomet
 The first version is completed, ~~but I can't test it since the PT server is offline.~~ Test done, the tool is functional.
 
 ## IM200 convertor
-Modified version of Shell model convertor, for Kobayashi's water heater.
+Modified version of Shell model convertor, for Kobayashi's water heater. But it doesn't work (Nevermind, WG's conversion tool is up now)
 
 ## Geometry to obj convertor
 ...is planned for the future, when we have fully understood the new format.
