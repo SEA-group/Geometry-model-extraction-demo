@@ -23,7 +23,7 @@ The last remaining problem is the name of the vertices/indices blocs, how WG enc
 
 The first version is completed, ~~but I can't test it since the PT server is offline.~~ Test done, the tool is functional.
 
-## IM200 convertor
+### IM200 convertor
 Modified version of Shell model convertor, for Kobayashi's water heater. But it doesn't work (Nevermind, WG's conversion tool is up now)
 
 ## Geometry to obj convertor
