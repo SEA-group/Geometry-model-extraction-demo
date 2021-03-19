@@ -127,28 +127,42 @@ indexSection[
 	}
 ]
 
-# unknownSectionPosition
-?unknownSection[]
+# cmodlSectionPosition								// collision model
+cmodlSection[
+	cmodlContentLength:4							// uint32
+	?zeros:4
+	sectionNameLength:4								// uint32
+	?zeros:4
+	sectionNamePosition:4							// uint32; position counted from the first byte of this sectionNamePosition
+	?zeros:4
+	cmodlContentPosition:4							// uint32; position counted from the first byte of cmodlContentLength
+	?zeros:4
+	cmodlContent[
+		?
+	]:cmodlContentLength
+	sectionName:sectionNameLength					// ascii; 'default '
+]
 
 # armorSectionPosition
 armorSection[
-	unclearLength:4									// uint32; counted from the first byte of unknownA to blocNameString
+	armorContentLength:4							// uint32; counted from the first byte of unknownA to sectionName
 	?zeros:4
-	blocNameStringLength:4							// uint32
+	sectionNameLength:4								// uint32
 	?zeros:4
-	blocNamePosition:4								// uint32; position counted from the first byte of blocNameStringLength
+	sectionNamePosition:4							// uint32; position counted from the first byte of sectionNameLength
 	?zeros:4
-	unknownA:24
-	numberOfArmorPieces:4							// uint32
-	armorPieces{
-		id:4										// uint32
-		unknownB:24									
-		numberOfVertices:4							// uint32
-		armorVertex{
-			xyz:12									// float*3
-			unknownC:4
-		}:8
-	}:32+8*numberOfVertices
-	blocNameString:blocNameStringLength				// ascii; 'CM_PA_united.armor '
-]
-// unknownA unknownB and unknownC are identical to those in .prmitives, although I don't know what they are, their data are not changed.
+	armorContent[
+		unknownA:24
+		numberOfArmorPieces:4						// uint32
+		armorPieces{
+			id:4									// uint32
+			unknownB:24									
+			numberOfVertices:4						// uint32
+			armorVertex{
+				xyz:12								// float*3
+				unknownC:4
+			}:8
+		}:32+8*numberOfVertices
+	]:armorContentLength
+	sectionName:sectionNameLength					// ascii; 'CM_PA_united.armor '
+]													// unknownA unknownB and unknownC are identical to those in .prmitives, although I don't know what they are, their data are not changed.

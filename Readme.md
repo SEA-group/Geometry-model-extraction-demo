@@ -13,6 +13,11 @@ This repo stocks files that may help understanding the file strcture of *.geomet
 * `FSB013_Jean_Bart_1955_MidBack` has a rich variety of vertex types (xyznuvpc for glass window, xyznuvrpc for wire, xyznuvtbpc for the rest) and both list16 & list32 index types.
 * `AGS028`, `JAS007` and `JGM055` can be used for investigating vertex types with iiiww.
 
+## Progress
+The coding of cmodl and armor sections is yet unclear for now, but those sections are "inert", they don't interfer with other sections. If our goal is to make a model conversion/extraction tool, we don't need to touch them at all. 
+
+The last remaining problem is the name of the vertices/indices blocs, how WG encrypt a string with random length into 4 bytes.
+
 ## Shell model convertor
 ~~It seems that *.geometry* has less information then *.primitives*, I guess WG's tool would need their corresponding *.visual* file for the conversion. Meanwhile we have never had *.visual* files of the shells.~~(Proven false) Since those models look simple, I will try to make a tool by myself.
 
