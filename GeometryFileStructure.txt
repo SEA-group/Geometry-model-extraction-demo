@@ -23,7 +23,7 @@ indexSectionPosition:4							// uint32
 ?zeros:4
 
 # 0x0038
-cmodlSectionPosition:4						// uint32
+cmodlSectionPosition:4							// uint32
 ?zeros:4
 
 # 0x0040
@@ -65,38 +65,38 @@ vertexSection[									// the vertex section has a 2-layer structure, the vertex
 	]:32*numberOfVertexTypes
 	largeVertexBlocs{
 		vertexBlocs[
-			set3/xyznuvrpc{							//// wire model 
-				xyz:12								// float *3
-				normal:4							// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-				u:2									// float16 + 0.5
-				v:2									// float16 + 0.5
-				r:4									// float
+			set3/xyznuvrpc{						//// wire model 
+				xyz:12							// float *3
+				normal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+				u:2								// float16 + 0.5
+				v:2								// float16 + 0.5
+				r:4								// float
 			}:24
-			set3/xyznuvpc{							//// alpha model 
-				xyz:12								// float *3
-				normal:4							// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-				u:2									// float16 + 0.5
-				v:2									// float16 + 0.5
+			set3/xyznuvpc{						//// alpha model 
+				xyz:12							// float *3
+				normal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+				u:2								// float16 + 0.5
+				v:2								// float16 + 0.5
 			}:20
-			set3/xyznuvtbpc{						//// standard model 
-				xyz:12								// float *3
-				normal:4							// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-				u:2									// float16 + 0.5
-				v:2									// float16 + 0.5
-				tangent:4							// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-				binormal:4							// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			set3/xyznuvtbpc{					//// standard model 
+				xyz:12							// float *3
+				normal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+				u:2								// float16 + 0.5
+				v:2								// float16 + 0.5
+				tangent:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+				binormal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
 			}:28
-			set3/xyznuviiiwwtbpc{					//// skinned model 
-				normal:4							// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-				u:2									// float16 + 0.5
-				v:2									// float16 + 0.5
-				iii:4								// SC_REVERSE_PADDED_III_
-				ww:4								// SC_REVERSE_PADDED__WW_
-				tangent:4							// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
-				binormal:4							// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+			set3/xyznuviiiwwtbpc{				//// skinned model 
+				normal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+				u:2								// float16 + 0.5
+				v:2								// float16 + 0.5
+				iii:4							// SC_REVERSE_PADDED_III_
+				ww:4							// SC_REVERSE_PADDED__WW_
+				tangent:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
+				binormal:4						// UBYTE4_NORMAL_8_8_8 (linear projection from [0, 255] to [-1, 1] of the first 3 bytes)
 			}:32
 		]:vertexBlocsTotalLength
-		vertexType:vertexTypeStringLength			// ascii
+		vertexType:vertexTypeStringLength		// ascii
 	}
 ]
 
@@ -104,65 +104,65 @@ vertexSection[									// the vertex section has a 2-layer structure, the vertex
 indexSection[
 	largeIndexBlocsInfo[									
 		largeIndexBlocInfo{
-			largeIndexBlocPosition:4				// uint32; position counted from the first byte of this largeIndexBlocPosition
+			largeIndexBlocPosition:4			// uint32; position counted from the first byte of this largeIndexBlocPosition
 			?zeros:4
-			indexBlocsTotalLength:4					// uint32
-			indexType:2								// uint16; seems like 0 for list16 and 1 for list32
-			singleIndexLength:2						// uint16;
+			indexBlocsTotalLength:4				// uint32
+			indexType:2							// uint16; seems like 0 for list16 and 1 for list32
+			singleIndexLength:2					// uint16;
 		}:16
 	]:16*numberOfIndexTypes
 	largeIndexBlocs{
 		indexBlocs[
 			list{								
-				i3:2								// uint16
-				i2:2								// uint16
-				i1:2								// uint16
+				i3:2							// uint16
+				i2:2							// uint16
+				i1:2							// uint16
 			}:6
 			list32{								
-				i3:4								// uint32
-				i2:4								// uint32
-				i1:4								// uint32
+				i3:4							// uint32
+				i2:4							// uint32
+				i1:4							// uint32
 			}:12
 		]:indexBlocsTotalLength
 	}
 ]
 
-# cmodlSectionPosition								// collision model
+# cmodlSectionPosition							// collision model
 cmodlSection[
-	cmodlContentLength:4							// uint32
+	cmodlContentLength:4						// uint32
 	?zeros:4
-	sectionNameLength:4								// uint32
+	sectionNameLength:4							// uint32
 	?zeros:4
-	sectionNamePosition:4							// uint32; position counted from the first byte of this sectionNamePosition
+	sectionNamePosition:4						// uint32; position counted from the first byte of this sectionNamePosition
 	?zeros:4
-	cmodlContentPosition:4							// uint32; position counted from the first byte of cmodlContentLength
+	cmodlContentPosition:4						// uint32; position counted from the first byte of cmodlContentLength
 	?zeros:4
 	cmodlContent[
 		?
 	]:cmodlContentLength
-	sectionName:sectionNameLength					// ascii; 'default '
+	sectionName:sectionNameLength				// ascii; 'default '
 ]
 
 # armorSectionPosition
 armorSection[
-	armorContentLength:4							// uint32; counted from the first byte of unknownA to sectionName
+	armorContentLength:4						// uint32; counted from the first byte of unknownA to sectionName
 	?zeros:4
-	sectionNameLength:4								// uint32
+	sectionNameLength:4							// uint32
 	?zeros:4
-	sectionNamePosition:4							// uint32; position counted from the first byte of sectionNameLength
+	sectionNamePosition:4						// uint32; position counted from the first byte of sectionNameLength
 	?zeros:4
 	armorContent[
 		unknownA:24
-		numberOfArmorPieces:4						// uint32
+		numberOfArmorPieces:4					// uint32
 		armorPieces{
-			id:4									// uint32
+			id:4								// uint32
 			unknownB:24									
-			numberOfVertices:4						// uint32
+			numberOfVertices:4					// uint32
 			armorVertex{
-				xyz:12								// float*3
+				xyz:12							// float*3
 				unknownC:4
 			}:8
 		}:32+8*numberOfVertices
 	]:armorContentLength
-	sectionName:sectionNameLength					// ascii; 'CM_PA_united.armor '
-]													// unknownA unknownB and unknownC are identical to those in .prmitives, although I don't know what they are, their data are not changed.
+	sectionName:sectionNameLength				// ascii; 'CM_PA_united.armor '
+]												// unknownA unknownB and unknownC are identical to those in .prmitives, although I don't know what they are, their data are not changed.
