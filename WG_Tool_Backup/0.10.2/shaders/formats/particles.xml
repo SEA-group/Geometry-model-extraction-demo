@@ -1,0 +1,41 @@
+<particles.xml>
+	<elements>
+		<POSITION/>
+
+		<!-- Texture coords -->
+		<TEXCOORD>
+			<semanticIndex> 0 </semanticIndex>
+			<type> SHORT2N </type>
+		</TEXCOORD>
+
+		<!-- Material -->
+		<TEXCOORD>
+			<semanticIndex> 1 </semanticIndex>
+			<type> FLOAT16_4 </type>
+		</TEXCOORD>
+
+		<!-- Color -->
+		<TEXCOORD>
+			<semanticIndex> 2 </semanticIndex>
+			<type> FLOAT16_4 </type>
+		</TEXCOORD>
+
+		<!-- Age -->
+		<TEXCOORD>
+			<semanticIndex> 3 </semanticIndex>
+			<type> FLOAT1 </type>
+		</TEXCOORD>
+
+		<!-- Packed data: thickness, flags, lightingType, lightWrapAmount -->
+		<TEXCOORD>
+			<semanticIndex> 4 </semanticIndex>
+			<type> FLOAT16_4 </type>
+		</TEXCOORD>
+		
+		<!-- Tangent -->
+		<TEXCOORD>
+			<semanticIndex> 5 </semanticIndex>
+			<type> UBYTE4 </type>
+		</TEXCOORD>
+	</elements>
+</particles.xml>

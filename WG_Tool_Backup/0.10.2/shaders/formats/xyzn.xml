@@ -1,0 +1,8 @@
+<xyzn.xml>
+	<elements>
+		<POSITION/>
+		<NORMAL>
+			<type> UBYTE4 </type>
+		</NORMAL>
+	</elements>
+</xyzn.xml>

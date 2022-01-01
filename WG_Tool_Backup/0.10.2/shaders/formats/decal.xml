@@ -1,0 +1,49 @@
+<decal.xml>
+	<elements>
+		<POSITION>
+			<type> FLOAT3 </type>
+			<stream> 0 </stream>
+			<offset> 0 </offset>
+		</POSITION>
+	
+		<!-- direction -->
+		<TEXCOORD>
+			<semanticIndex> 0 </semanticIndex>
+			<type> FLOAT3 </type>
+			<stream> 9 </stream>
+			<offset> 0 </offset>
+		</TEXCOORD>
+		<!-- position -->
+		<TEXCOORD>
+			<semanticIndex> 1 </semanticIndex>
+			<type> FLOAT3 </type>
+		</TEXCOORD>
+		<!-- 3 up + 3 scale -->
+		<TEXCOORD>
+			<semanticIndex> 2 </semanticIndex>
+			<type> FLOAT16_4 </type>
+		</TEXCOORD>
+		<TEXCOORD>
+			<semanticIndex> 3 </semanticIndex>
+			<type> FLOAT16_2 </type>
+		</TEXCOORD>
+		<!-- texCoords -->
+		<TEXCOORD>
+			<semanticIndex> 4 </semanticIndex>
+			<type> SHORT4N </type>
+		</TEXCOORD>
+		<TEXCOORD>
+			<semanticIndex> 5 </semanticIndex>
+			<type> SHORT4N </type>
+		</TEXCOORD>
+		<TEXCOORD>
+			<semanticIndex> 6 </semanticIndex>
+			<type> SHORT4N </type>
+		</TEXCOORD>
+		<!-- influence + some data -->
+		<TEXCOORD>
+			<semanticIndex> 7 </semanticIndex>
+			<type> SHORT2N </type>
+		</TEXCOORD>
+	</elements>
+</decal.xml>

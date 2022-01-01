@@ -1,0 +1,59 @@
+<wg_spt_leaves.xml>
+	<elements>
+		<!-- pos0 -->
+		<POSITION>
+			<semanticIndex> 0 </semanticIndex>
+			<stream> 0 </stream>
+			<offset> 0 </offset>
+			<type> FLOAT3 </type>
+		</POSITION>
+		<!-- pos1 -->
+		<POSITION>
+			<semanticIndex> 1 </semanticIndex>
+			<stream> 0 </stream>
+			<offset> 12 </offset>
+			<type> FLOAT3 </type>
+		</POSITION>
+		<!-- pos2 -->
+		<POSITION>
+			<semanticIndex> 2 </semanticIndex>
+			<stream> 0 </stream>
+			<offset> 24 </offset>
+			<type> FLOAT3 </type>
+		</POSITION>
+		<!-- tex0 -->
+		<TEXCOORD>
+			<semanticIndex> 0 </semanticIndex>
+			<stream> 0 </stream>
+			<offset> 36 </offset>
+			<type> FLOAT2 </type>
+		</TEXCOORD>
+		<!-- tex1 -->
+		<TEXCOORD>
+			<semanticIndex> 1 </semanticIndex>
+			<stream> 0 </stream>
+			<offset> 44 </offset>
+			<type> FLOAT4 </type>
+		</TEXCOORD>
+		<!-- tex2 -->
+		<TEXCOORD>
+			<semanticIndex> 2 </semanticIndex>
+			<stream> 0 </stream>
+			<offset> 60 </offset>
+			<type> FLOAT4 </type>
+		</TEXCOORD>
+		<!-- norm -->
+		<NORMAL>
+			<stream> 0 </stream>
+			<offset> 76 </offset>
+			<type> FLOAT4 </type>
+		</NORMAL>
+		<!-- tan -->
+		<TANGENT>
+			<stream> 0 </stream>
+			<offset> 92 </offset>
+			<type> FLOAT3 </type>
+		</TANGENT>
+	</elements>
+</wg_spt_leaves.xml>
+

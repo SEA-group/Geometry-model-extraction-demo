@@ -1,0 +1,21 @@
+<spatial_ui_line.xml>
+	<elements>
+		<POSITION>
+			<type> FLOAT3 </type>
+			<semanticIndex> 0 </semanticIndex>
+		</POSITION>
+		<COLOR>
+			<type> COLOR </type>
+			<semanticIndex> 0 </semanticIndex>
+		</COLOR>
+		
+		<POSITION>
+			<type> FLOAT3 </type>
+			<semanticIndex> 1 </semanticIndex>
+		</POSITION>
+		<COLOR>
+			<type> COLOR </type>
+			<semanticIndex> 1 </semanticIndex>
+		</COLOR>
+	</elements>
+</spatial_ui_line.xml>

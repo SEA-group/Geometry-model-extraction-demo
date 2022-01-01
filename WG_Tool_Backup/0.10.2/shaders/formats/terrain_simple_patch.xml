@@ -1,0 +1,21 @@
+<terrain_simple_patch.xml>
+	<elements>
+		<POSITION>
+			<type> FLOAT2 </type>
+			<stream> 0 </stream>
+			<offset> 0 </offset>
+		</POSITION>
+		
+		<TEXCOORD>
+			<semanticIndex> 0 </semanticIndex>
+			<type> FLOAT2 </type>
+			<stream> 9 </stream>
+			<offset> 0 </offset>
+		</TEXCOORD>
+		<TEXCOORD>
+			<semanticIndex> 1 </semanticIndex>
+			<type> FLOAT1 </type>
+			<offset> 8 </offset>
+		</TEXCOORD>
+	</elements>
+</terrain_simple_patch.xml>

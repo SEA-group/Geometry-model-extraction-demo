@@ -3,8 +3,8 @@ numberOfVertexTypes:4							// uint32
 numberOfIndexTypes:4							// uint32
 numberOfVertexBlocs:4							// uint32; "small" blocs, not the large ones
 numberOfIndexBlocs:4							// uint32
-numberOfCmodlBlocs:4							// uint32
-numberOfArmorBlocs:4							// uint32
+numberOfCollissionModelBlocs:4							// uint32
+numberOfArmorModelBlocs:4							// uint32
 
 # 0x0018
 vertexBlocsInfoPosition:4						// uint32

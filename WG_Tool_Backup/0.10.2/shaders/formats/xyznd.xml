@@ -1,0 +1,9 @@
+<xyznd.xml>
+	<elements>
+		<POSITION/>
+		<NORMAL/>
+		<COLOR>
+				<type> COLOR </type>
+		</COLOR>
+	</elements>
+</xyznd.xml>
