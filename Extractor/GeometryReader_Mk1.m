@@ -64,7 +64,11 @@
     infoLargeVertexBloc = {};
     for indLargeVertexBloc = 1:numVertexType
         cursor = posVertexSection + (indLargeVertexBloc-1) * 32;
-        infoLargeVertexBloc{indLargeVertexBloc}.posLargeVertexBloc
+        infoLargeVertexBloc{indLargeVertexBloc}.posLargeVertexBloc = byte2Uint32LE(geomCode(cursor+1:cursor+4));
+        infoLargeVertexBloc{indLargeVertexBloc}.lenVertexTypeString = byte2Uint32LE(geomCode(cursor+9:cursor+12));
+        infoLargeVertexBloc{indLargeVertexBloc}.posVertexTypeString = byte2Uint32LE(geomCode(cursor+17:cursor+20));
+        infoLargeVertexBloc{indLargeVertexBloc}.lenLargeVertexBloc = byte2Uint32LE(geomCode(cursor+25:cursor+28));
+        infoLargeVertexBloc{indLargeVertexBloc}.lenSingleVertexData = byte2Uint16LE(geomCode(cursor+29:cursor+30));
     end
 
 
