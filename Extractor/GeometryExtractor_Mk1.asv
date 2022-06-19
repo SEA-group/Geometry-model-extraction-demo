@@ -1,0 +1,24 @@
+% An experimental geometry model extractor, prototype
+% version -
+% requires -
+
+tic
+clc
+clear
+close all;
+format long;
+
+%% Load files
+
+fileNames = dir('Queue/*.geometry');
+
+for indFile = 1: size(fileNames, 1)
+    
+    fileName = fileNames(indFileInFolder).name(1: end-9);   % remove extention
+    
+    %% Extract data from the current file
+    sectionName = PrimitivesReader_Mk5(['Queue/', fileName, '.geometry']);
+    
+    
+    
+end
