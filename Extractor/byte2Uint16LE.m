@@ -1,5 +1,8 @@
-function outputFloat = byte2Uint16LE(byte1, byte2)
+% input : 2x1 double
+% output : 1 double
+
+function outputFloat = byte2Uint16LE(bytes)
     
-    outputFloat = byte2 * 256 + byte1;
+    outputFloat = bytes(2) * 256 + bytes(1);
 
 end
