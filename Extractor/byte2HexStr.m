@@ -7,7 +7,14 @@ function outputStr = byte2HexStr(bytes)
     
     for indByte = 1:length(bytes)
         str = dec2hex(bytes(indByte));
-        outputStr = [outputStr, str];
+        if isempty(str)
+            outputStr = [outputStr, '00'];
+        elseif length(str) == 1
+            outputStr = [outputStr, '0', str];
+        else
+            outputStr = [outputStr, str];
+        end
+            
     end
 
 end
