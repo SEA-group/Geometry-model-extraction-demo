@@ -42,7 +42,7 @@ vertexBlocsInfo[
 ]:16*numberOfVertexBlocs
 indexBlocsInfo[
 	indexBlocInfo{
-		?blocName:4 							// unknown coding
+		?blocName:4								// unknown coding
 		indexTypeIndex:2						// uint16
 		paringIndex:2							// uint16
 		blocPosition:4							// uint32; position counted from the first byte of indexBlocs[]
