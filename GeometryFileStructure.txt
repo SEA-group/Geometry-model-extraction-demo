@@ -45,7 +45,7 @@ indexBlocsInfo[
 		?blocName:4								// unknown coding
 		indexTypeIndex:2						// uint16
 		?paringIndex:2							// uint16
-		blocPosition:4							// uint32; position counted from the first byte of indexBlocs[]
+		blocPosition:4							// uint32; position counted from the first byte of indexBlocs[]; the unit is index, not byte; each triangle is counted as 3 indices
 		blocIndicesNumber:4						// uint32; each triangle is counted as 3 indices
 	}:16
 ]:16*numberOfIndexBlocs
