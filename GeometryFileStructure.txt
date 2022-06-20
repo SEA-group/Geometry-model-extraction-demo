@@ -36,7 +36,7 @@ vertexBlocsInfo[
 		?blocName:4								// unknown coding
 		vertexTypeIndex:2						// uint16
 		?paringIndex:2							// uint16
-		blocPosition:4							// uint32; position counted from the first byte of vertexBlocs[]
+		blocPosition:4							// uint32; position counted from the first byte of vertexBlocs[]; the unit is vertex, not byte
 		blocVerticesNumber:4					// uint32
 	}:16
 ]:16*numberOfVertexBlocs
