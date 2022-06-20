@@ -3,8 +3,8 @@ numberOfVertexTypes:4							// uint32
 numberOfIndexTypes:4							// uint32
 numberOfVertexBlocs:4							// uint32; "small" blocs, not the large ones
 numberOfIndexBlocs:4							// uint32
-numberOfCollissionModelBlocs:4							// uint32
-numberOfArmorModelBlocs:4							// uint32
+numberOfCollissionModelBlocs:4					// uint32
+numberOfArmorModelBlocs:4						// uint32
 
 # 0x0018
 vertexBlocsInfoPosition:4						// uint32
@@ -34,7 +34,8 @@ armorSectionPosition:4							// uint32
 vertexBlocsInfo[
 	vertexBlocInfo{
 		?blocName:4								// unknown coding
-		vertexTypeIndex:4						// uint32
+		vertexTypeIndex:2						// uint16
+		paringIndex:2							// uint16
 		blocPosition:4							// uint32; position counted from the first byte of vertexBlocs[]
 		blocVerticesNumber:4					// uint32
 	}:16
@@ -42,7 +43,8 @@ vertexBlocsInfo[
 indexBlocsInfo[
 	indexBlocInfo{
 		?blocName:4 							// unknown coding
-		indexTypeIndex:4						// uint32;
+		indexTypeIndex:2						// uint16
+		paringIndex:2							// uint16
 		blocPosition:4							// uint32; position counted from the first byte of indexBlocs[]
 		blocIndicesNumber:4						// uint32; each triangle is counted as 3 indices
 	}:16
@@ -108,7 +110,7 @@ indexSection[
 			?zeros:4
 			indexBlocsTotalLength:4				// uint32
 			indexType:2							// uint16; seems like 0 for list16 and 1 for list32
-			singleIndexLength:2					// uint16;
+			singleIndexLength:2					// uint16
 		}:16
 	]:16*numberOfIndexTypes
 	largeIndexBlocs{
