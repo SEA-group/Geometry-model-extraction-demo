@@ -107,7 +107,7 @@ function [blocVertex, blocIndex, combinations] = GeometryReader_Mk1(fileName)
             
             if blocVertex{indVertexBloc}.indVertexType == indLargeVertexBloc - 1
                 
-                disp([num2str(indLargeVertexBloc), ' - ' num2str(indVertexBloc)]);
+%                 disp([num2str(indLargeVertexBloc), ' - ', num2str(indVertexBloc)]);
             
                 numVertex = blocVertex{indVertexBloc}.numVertex;
                 lenTotalVertexData = numVertex * lenSingleVertexData;
