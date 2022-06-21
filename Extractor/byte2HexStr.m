@@ -14,7 +14,6 @@ function outputStr = byte2HexStr(bytes)
         else
             outputStr = [outputStr, str];
         end
-            
     end
 
 end

@@ -19,7 +19,7 @@ function [blocVertex, blocIndex, combinations] = GeometryReader_Mk1(fileName)
 %     %% debug params
 %     clc
 %     clear
-%     fileName = 'Queue/CPA001_Shell_AP_0.11.5.geometry';
+%     fileName = 'Queue/ASD042_Gearing_1945_Bow.geometry';
     
     %% load raw data
     
@@ -79,32 +79,46 @@ function [blocVertex, blocIndex, combinations] = GeometryReader_Mk1(fileName)
         anchor = posVertexSection + (indLargeVertexBloc-1) * 32;
         
         % read large vertex blocs info
-        blocVertexLarge{indLargeVertexBloc}.posLargeVertexBloc = byte2Uint32LE(geomCode(anchor+1: anchor+4));
+        blocVertexLarge{indLargeVertexBloc}.posLargeVertexBloc = anchor + 1 + byte2Uint32LE(geomCode(anchor+1: anchor+4));
         blocVertexLarge{indLargeVertexBloc}.lenVertexTypeString = byte2Uint32LE(geomCode(anchor+9: anchor+12));
-        blocVertexLarge{indLargeVertexBloc}.posVertexTypeString = byte2Uint32LE(geomCode(anchor+17: anchor+20));
-        blocVertexLarge{indLargeVertexBloc}.lenLargeVertexBloc = byte2Uint32LE(geomCode(anchor+25: anchor+28));
+        blocVertexLarge{indLargeVertexBloc}.posVertexTypeString = anchor + 9 + byte2Uint32LE(geomCode(anchor+17: anchor+20));
+        blocVertexLarge{indLargeVertexBloc}.lenLargeVertexBloc = byte2Uint32LE(geomCode(anchor+25: anchor+28));     % useless
         blocVertexLarge{indLargeVertexBloc}.lenSingleVertexData = byte2Uint16LE(geomCode(anchor+29: anchor+30));
+%         blocVertexLarge{indLargeVertexBloc}.unknown1 = byte2Uint32LE(geomCode(anchor+5: anchor+8));
+%         blocVertexLarge{indLargeVertexBloc}.unknown2 = byte2Uint32LE(geomCode(anchor+13: anchor+16));
+%         blocVertexLarge{indLargeVertexBloc}.unknown3 = byte2Uint32LE(geomCode(anchor+21: anchor+24));
         
         % get vertex type
-        blocVertexLarge{indLargeVertexBloc}.valVertexTypeString = char( geomCode(anchor+9+blocVertexLarge{indLargeVertexBloc}.posVertexTypeString : ...
-            anchor+9+blocVertexLarge{indLargeVertexBloc}.posVertexTypeString+blocVertexLarge{indLargeVertexBloc}.lenVertexTypeString-1)' );
+        blocVertexLarge{indLargeVertexBloc}.valVertexTypeString = char( geomCode(blocVertexLarge{indLargeVertexBloc}.posVertexTypeString : ...
+            blocVertexLarge{indLargeVertexBloc}.posVertexTypeString+blocVertexLarge{indLargeVertexBloc}.lenVertexTypeString-1)' );
         
     end
-    
-    anchor = posVertexSection + numVertexType * 32;
-    cursor = anchor;
             
-    % read vertex blocs
-    for indVertexBloc = 1: numVertexBloc
+    % read vertex blocs    
+    for indLargeVertexBloc = 1: numVertexType
         
-        vertexType = blocVertexLarge{blocVertex{indVertexBloc}.indVertexType+1}.valVertexTypeString;
-        lenSingleVertexData = blocVertexLarge{blocVertex{indVertexBloc}.indVertexType+1}.lenSingleVertexData;
-        numVertex = blocVertex{indVertexBloc}.numVertex;
-        lenTotalVertexData = numVertex * lenSingleVertexData;
+        lenSingleVertexData = blocVertexLarge{indLargeVertexBloc}.lenSingleVertexData;
+        vertexType = blocVertexLarge{indLargeVertexBloc}.valVertexTypeString;
+        
+        anchor = blocVertexLarge{indLargeVertexBloc}.posLargeVertexBloc;
+        cursor = anchor;
+        
+        for indVertexBloc = 1: numVertexBloc
+            
+            if blocVertex{indVertexBloc}.indVertexType == indLargeVertexBloc - 1
+                
+                disp([num2str(indLargeVertexBloc), ' - ' num2str(indVertexBloc)]);
+            
+                numVertex = blocVertex{indVertexBloc}.numVertex;
+                lenTotalVertexData = numVertex * lenSingleVertexData;
 
-        blocVertex{indVertexBloc}.dataVertex = VertexReader_Mk1(geomCode(cursor+1: cursor+lenTotalVertexData), numVertex, lenSingleVertexData, vertexType);
-        
-        cursor = cursor + lenTotalVertexData;
+                blocVertex{indVertexBloc}.dataVertex = VertexReader_Mk1(geomCode(cursor: cursor+lenTotalVertexData-1), numVertex, lenSingleVertexData, vertexType);
+
+                cursor = cursor + lenTotalVertexData;
+                
+            end
+
+        end
         
     end
     
@@ -117,32 +131,42 @@ function [blocVertex, blocIndex, combinations] = GeometryReader_Mk1(fileName)
         anchor = posIndexSection + (indLargeIndexBloc-1) * 16;
         
         % read large index blocs info
-        blocIndexLarge{indLargeIndexBloc}.posLargeIndexBloc = byte2Uint32LE(geomCode(anchor+1: anchor+4));
+        blocIndexLarge{indLargeIndexBloc}.posLargeIndexBloc = anchor + 1 + byte2Uint32LE(geomCode(anchor+1: anchor+4));
         blocIndexLarge{indLargeIndexBloc}.lenLargeIndexBloc = byte2Uint32LE(geomCode(anchor+9: anchor+12));
         blocIndexLarge{indLargeIndexBloc}.valIndexType = byte2Uint16LE(geomCode(anchor+13: anchor+14));
         blocIndexLarge{indLargeIndexBloc}.lenSingleIndexData = byte2Uint16LE(geomCode(anchor+15: anchor+16));
         
     end
     
-    anchor = posIndexSection + numIndexType * 16;
-    cursor = anchor;
-    
     % read index blocs
-    for indIndexBloc = 1: numIndexBloc
+    for indLargeIndexBloc = 1: numIndexType
         
-        indexType = blocIndexLarge{blocIndex{indIndexBloc}.indIndexType+1}.valIndexType;
-        lenSingleIndexData = blocIndexLarge{blocIndex{indIndexBloc}.indIndexType+1}.lenSingleIndexData;
-        numIndex = blocIndex{indIndexBloc}.numIndex;
-        lenTotalIndexData = numIndex * lenSingleIndexData;
+        indexType = blocIndexLarge{indLargeIndexBloc}.valIndexType;
+        lenSingleIndexData = blocIndexLarge{indLargeIndexBloc}.lenSingleIndexData;
         
-        blocIndex{indIndexBloc}.dataIndex = IndexReader_Mk1(geomCode(cursor+1: cursor+lenTotalIndexData), numIndex, lenSingleIndexData, indexType);
+        anchor = blocIndexLarge{indLargeIndexBloc}.posLargeIndexBloc;
+        cursor = anchor;
         
-        cursor = cursor + lenTotalIndexData;
-        
+        for indIndexBloc = 1: numIndexBloc
+
+            if blocIndex{indIndexBloc}.indIndexType == indLargeIndexBloc - 1
+                
+                numIndex = blocIndex{indIndexBloc}.numIndex;
+                lenTotalIndexData = numIndex * lenSingleIndexData;
+
+                blocIndex{indIndexBloc}.dataIndex = IndexReader_Mk1(geomCode(cursor: cursor+lenTotalIndexData-1), numIndex, lenSingleIndexData, indexType);
+
+                cursor = cursor + lenTotalIndexData;
+                
+            end
+
+        end
+    
     end
     
     %% pair vertex-index blocs
     
+    disp(['trying to pair blocs in ', fileName, ' ...']);
     combinations = BlocMatch_Mk1(blocVertex, blocIndex);
 
 end
