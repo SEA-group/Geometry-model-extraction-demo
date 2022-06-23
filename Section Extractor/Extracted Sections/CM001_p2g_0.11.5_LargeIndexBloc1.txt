@@ -1,0 +1,4 @@
+Index type: list16
+Single index length (byte): 2
+*Note that 1 triangle is counted as 3 indices
+Index bloc N°1 counts 36 indices.

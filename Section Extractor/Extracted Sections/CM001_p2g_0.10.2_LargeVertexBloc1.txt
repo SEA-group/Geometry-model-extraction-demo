@@ -1,0 +1,3 @@
+Vertex type: set3/xyznuvtbpc
+Single vertex length (byte): 28
+Vertex bloc N°1 counts 24 vertices.
